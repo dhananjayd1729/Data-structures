@@ -1,0 +1,101 @@
+#include <iostream>
+
+using namespace std;
+
+#define MAX 1000
+
+class stack{
+    
+    int top;
+    int top1;
+    
+    public:
+    int a[MAX];
+    int mid= MAX/2;
+    stack(){top=-1; top1=mid;}
+    
+    
+    int push1(int x){
+        if(top> mid){
+            cout<<"stack1 is full."<<endl;
+            return 0;
+        }
+        else{
+            a[top++]=x;
+            cout<< x << " is pushed in stack1."<<endl;
+            return x;
+        }
+    }
+
+    int pop1(){
+        if(top==-1){
+            cout<<"stack2 underflow."<<endl;
+        } else{
+            int x=a[top--];
+            cout<< x << " is popped out from stack1."<<endl;
+            return x;
+        }
+    }
+    
+    int peek(){
+        if(top<0){
+            cout<<"stack underflow."<<endl;
+            return 0;
+        } else{
+            int x=a[top];
+            cout<< x << " is current top element."<<endl;
+            return x;
+        }
+    }
+    
+    int push2(int x){
+        if(top1>= MAX){
+            cout<<"stack2 is full."<<endl;
+        }
+        else{
+            a[top1++]=x;
+            cout<< x << " is pushed in stack2."<<endl;
+            return x;
+        }
+    }
+    
+    
+    int pop2(){
+        if(top1==mid){
+            cout<<"stack2 underflow."<<endl;
+        } else{
+            int x=a[top1--];
+            cout<< x << " is popped out from stack2."<<endl;
+            return x;
+        }
+    }
+    
+    
+    
+};
+
+
+
+
+int main()
+{
+   class stack s1;
+   
+   s1.push1(1);
+   s1.push1(2);
+   s1.push1(5);
+   s1.pop1();
+   s1.peek();
+//   s1.pop1();
+//   s1.pop1();
+//   s1.pop1();
+   s1.push2(4);
+   s1.push2(6);
+   s1.push2(8);
+   s1.pop2();
+   s1.pop2();
+   
+   
+   
+   return 0;
+}
